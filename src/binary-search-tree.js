@@ -78,11 +78,11 @@ class BinarySearchTree {
       return node;
     }
 
-    if (value < node.data) {
+    if (node.left && value < node.data) {
       return this.searchNode(node.left, value);
     }
 
-    if (value > node.data) {
+    if (node.right && value > node.data) {
       return this.searchNode(node.right, value);
     }
 
@@ -138,13 +138,8 @@ class BinarySearchTree {
       tree.add(32);
       tree.add(12);
       tree.add(14);
-      console.log(tree.find(8).data);
-      console.log(tree.find(2).data);
-      // console.log(tree.find(14).data);
-      // tree.find(2).data;
-      // tree.find(32).data;
-      tree.find(14).data;
-      console.dir(tree.root().right.right.right)
+      console.log(tree.find(4343443));
+
 
 module.exports = {
   BinarySearchTree
