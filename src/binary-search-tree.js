@@ -5,25 +5,17 @@ const { Node } = require('../extensions/list-tree.js');
 * using Node from extensions
 */
 class BinarySearchTree {
-  tree = {
-    data: null,
-    left: null,
-    right: null,
-  }
-
-  constructor() {
-    this.tree = new Node(null);
-  }
+  tree = null;
 
   root() {
     return this.tree;
   }
 
   add(data) {
-    if (this.tree.data === null) {
-      this.tree.data = data;
-      return;
+    if (!this.tree) {
+      this.tree = new Node(data);
     }
+
     this.insertNode(this.tree, data);
   }
 
@@ -98,6 +90,7 @@ class BinarySearchTree {
   }
 
   insertNode(parentNode, value) {
+
     if (value < parentNode.data) {
       if (parentNode.left === null) {
         parentNode.left = new Node(value);
