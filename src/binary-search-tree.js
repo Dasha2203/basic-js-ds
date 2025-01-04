@@ -78,11 +78,11 @@ class BinarySearchTree {
       return node;
     }
 
-    if (node.left && value <= node.left.data) {
+    if (value < node.data) {
       return this.searchNode(node.left, value);
     }
 
-    if (node.right && value >= node.right.data) {
+    if (value > node.data) {
       return this.searchNode(node.right, value);
     }
 
@@ -128,6 +128,23 @@ class BinarySearchTree {
     return this.getMax(parentNode.right);
   }
 }
+
+      const tree = new BinarySearchTree();
+      tree.add(2);
+      tree.add(7);
+      tree.add(1);
+      tree.add(8);
+      tree.add(4);
+      tree.add(32);
+      tree.add(12);
+      tree.add(14);
+      console.log(tree.find(8).data);
+      console.log(tree.find(2).data);
+      // console.log(tree.find(14).data);
+      // tree.find(2).data;
+      // tree.find(32).data;
+      tree.find(14).data;
+      console.dir(tree.root().right.right.right)
 
 module.exports = {
   BinarySearchTree
